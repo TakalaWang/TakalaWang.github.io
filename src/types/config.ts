@@ -34,6 +34,7 @@ export enum LinkPreset {
   Home = 0,
   Archive = 1,
   About = 2,
+  Curriculum = 3,
 }
 
 export type NavBarLink = {
@@ -49,6 +50,9 @@ export type NavBarConfig = {
 export type ProfileConfig = {
   avatar?: string
   name: string
+  department: string
+  email: string
+  website: string
   bio?: string
   links: {
     name: string

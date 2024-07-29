@@ -1,0 +1,46 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import CurriculumContent from "../components/CurriculumContent.astro";
+import { i18n } from "../i18n/translation";
+import I18nKey from "../i18n/i18nKey";
+import { default_curriculum_semester } from "@/config";
+
+const default_semester = default_curriculum_semester;
+const semesters = ["110-1", "110-2", "111-1", "111-2", "112-1", "112-2", "113-1"];
+---
+<script>
+    const semesters = ["110-1", "110-2", "111-1", "111-2", "112-1", "112-2", "113-1"];
+
+    document.body.addEventListener('change', (e) => {
+        const target = e.target as HTMLSelectElement;
+        if (!target) return;
+        const change_semester = target.value;
+        if (target.id === 'semester_selector') {
+            semesters.forEach((semester) => {
+                const page = document.getElementById(`${semester}_page`) as HTMLElement;
+                if (semester === change_semester) {
+                    page.classList.remove("hidden");
+                    page.classList.add("animate-fadeIn");
+                } else {
+                    page.classList.add("hidden");
+                    page.classList.remove("animate-fadeIn");
+                }
+            });
+        }
+    });
+</script>
+
+<MainGridLayout title={i18n(I18nKey.curriculum)} description={i18n(I18nKey.curriculum)}>
+    <select id="semester_selector" class="absolute top-8 p-2 right-6 z-20 border border-gray-400 bg-inherit text-gray-800 dark:text-gray-100 rounded-[var(--radius-large)]">
+        {semesters.map((semester) => (
+            semester === default_semester ? 
+            <option value={semester} selected>{semester}</option> : 
+            <option value={semester} >{semester}</option> 
+        ))}
+    </select>
+    {semesters.map((semester) => (
+        <div id={`${semester}_page`} class={`animate-transition ${semester === default_semester ? '' : 'hidden'}`}>
+            <CurriculumContent semester={semester} />
+        </div>
+    ))}
+</MainGridLayout>

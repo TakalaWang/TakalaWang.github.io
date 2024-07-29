@@ -1,0 +1,77 @@
+---
+import CourseModal from "./CourseModal.astro";
+import type { MDXInstance } from "astro";
+
+interface Props {
+    semester: string;
+};
+interface Frontmatter {
+    name: string
+    teacher: string
+    times: string[]
+    recommeded: 1|2|3|4|5
+    sweet: 1|2|3|4|5
+    relax: 1|2|3|4|5
+    learned: 1|2|3|4|5
+}
+
+const { semester } = Astro.props;
+const WEEKDAYS = ["", "Mon", "Tue", "Wed", "Thu", "Fri"], TIMES = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D"];
+
+const courses = await Astro.glob<Frontmatter>(`../content/courses/*/*.mdx`)
+    .then((res) => res.filter((course) => course.file.includes(semester)));
+
+let curriculums: MDXInstance<Frontmatter>[][] = new Array(TIMES.length).fill(null).map(() => new Array(WEEKDAYS.length - 1).fill(null));
+courses.forEach(course => {
+    for (const times of course.frontmatter.times) {
+        const [week, time] = times.split("-");
+        curriculums[parseInt(time) - 1][parseInt(week) - 1] = course
+    }
+});
+---
+<div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-9 py-6 relative w-full ">
+        <div class="m-0.5 p-5 font-bold text-3xl mb-1 dark:text-neutral-50 transition">
+            Curriculum
+        </div>
+        
+        <div class="relative overflow-x-auto shadow-md border border-gray-400 sm:rounded-lg">
+            <table class="table-fixed w-full text-base text-center rtl:text-center text-gray-500 dark:text-gray-300">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
+                    {WEEKDAYS.map((day) => (
+                        <th class="px-6 py-3">{day}</th>
+                    ))}
+                </thead>
+                <tbody>
+                    {curriculums.map((row_courses, time) => (
+                        <tr>
+                            <td class="h-20 border-y-[1px] border-gray-400">
+                                {TIMES[time]}
+                            </td>
+                            {row_courses.map((course, weekday) => (
+                                <td class="h-20 p-2 border-y-[1px] border-gray-400">
+                                    {
+                                        course ? 
+                                        <CourseModal 
+                                            url={course.url}
+                                            name={course.frontmatter.name}
+                                            id_name={`course-${semester}-${WEEKDAYS[weekday + 1]}-${TIMES[time]}`}
+                                            teacher={course.frontmatter.teacher}
+                                            recommeded={course.frontmatter.recommeded}
+                                            sweet={course.frontmatter.sweet}
+                                            relax={course.frontmatter.relax}
+                                            learned={course.frontmatter.learned}
+                                            Content={course.Content}
+                                        />
+                                        :
+                                        <div class="h-10"></div>
+                                    }
+                                </td>
+                            ))}
+                        </tr>
+                    ))}    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

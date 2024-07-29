@@ -1,23 +1,59 @@
 ---
-
 import MainGridLayout from "../layouts/MainGridLayout.astro";
-
-import { getEntry } from 'astro:content'
-import {i18n} from "../i18n/translation";
+import AboutContent from "../components/AboutContent.astro";
+import { i18n } from "../i18n/translation";
 import I18nKey from "../i18n/i18nKey";
-import Markdown from "@components/misc/Markdown.astro";
+import { default_about_page_lang } from "@/config";
 
-const aboutPost = await getEntry('spec', 'about')
-
-const { Content } = await aboutPost.render()
-
+const default_lang = default_about_page_lang;
+const support_languages = [
+    {
+        lang: "en",
+        name: "English",
+    },
+    {
+        lang: "zh_tw",
+        name: "中文",
+    },
+    {
+        lang: "ja",
+        name: "日本語",
+    },
+]
 ---
+<script>
+    const support_languages = ["en", "zh_tw", "ja"];
+
+    document.body.addEventListener('change', (e) => {
+        const target = e.target as HTMLSelectElement;
+        if (!target) return;
+        const change_language = target.value;
+        if (target.id === 'language_selector') {
+            support_languages.forEach((language) => {
+                const page = document.getElementById(`${language}_page`) as HTMLElement;
+                if (language === change_language) {
+                    page.classList.remove("hidden");
+                    page.classList.add("animate-fadeIn");
+                } else {
+                    page.classList.add("hidden");
+                    page.classList.remove("animate-fadeIn");
+                }
+            });
+        }
+    });
+</script>
+
 <MainGridLayout title={i18n(I18nKey.about)} description={i18n(I18nKey.about)}>
-    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
-        <div class="card-base z-10 px-9 py-6 relative w-full ">
-            <Markdown class="mt-2">
-                <Content />
-            </Markdown>
+    <select id="language_selector" class="absolute top-8 right-6 z-20 border border-gray-400 bg-inherit text-gray-800 dark:text-gray-100 rounded-[var(--radius-large)] p-2">
+        {support_languages.map((language) => (
+            language.lang === default_lang ? 
+            <option value={language.lang} selected>{language.name}</option> : 
+            <option value={language.lang} >{language.name}</option>
+        ))}
+    </select>
+    {support_languages.map((language) => (
+        <div id={`${language.lang}_page`} class={`animate-transition ${language.lang === default_lang ? '' : 'hidden'}`}>
+            <AboutContent lang={language.lang} />
         </div>
-    </div>
+    ))}
 </MainGridLayout>

@@ -1,0 +1,44 @@
+---
+
+import WidgetLayout from "./WidgetLayout.astro";
+import { Icon } from 'astro-icon/components';
+import {i18n} from "../../i18n/translation";
+import I18nKey from "../../i18n/i18nKey";
+import {profileConfig} from "../../config";
+
+const config = profileConfig;
+
+const COLLAPSED_HEIGHT = "7.5rem";
+
+const isCollapsed = false;
+
+interface Props {
+    class?: string;
+    style?: string;
+}
+const className = Astro.props.class
+const style = Astro.props.style
+
+---
+<WidgetLayout name={i18n(I18nKey.contact)} id="contact" isCollapsed={isCollapsed} collapsedHeight={COLLAPSED_HEIGHT} class={className} style={style}>
+    <div class="flex gap-2 flex-wrap">
+        <div class="flex items-center gap-2 text-neutral-400">
+            <div class="meta-icon">
+                <Icon name="material-symbols:mail-rounded" class="text-xl"></Icon>
+            </div>
+            <a href={`mailto:${config.email}`} class="link-lg transition text-50 text-sm font-medium
+                hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap">
+                {config.email}
+            </a>
+        </div>
+        <div class="flex items-center gap-2 text-neutral-400">
+            <div class="meta-icon">
+                <Icon name="material-symbols:link-rounded" class="text-xl"></Icon>
+            </div>
+            <a href={config.website} target="_blank" rel="noopener" class="link-lg transition text-50 text-sm font-medium
+                hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap">
+                {config.website}
+            </a>
+        </div>
+    </div>
+</WidgetLayout>

@@ -5,8 +5,10 @@ export const ko: Translation = {
   [Key.home]: '홈',
   [Key.about]: '소개',
   [Key.archive]: '아카이브',
+  [Key.curriculum]: '커리큘럼',
   [Key.search]: '검색',
 
+  [Key.contact]: '연락',
   [Key.tags]: '태그',
   [Key.categories]: '카테고리',
   [Key.recentPosts]: '최근 게시물',

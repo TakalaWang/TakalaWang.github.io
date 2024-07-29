@@ -1,0 +1,76 @@
+---
+import StarCard from "@components/widget/StarCard.astro";
+import type { MDXInstance } from "astro";
+interface Props {
+    url: string|undefined;
+    name: string;
+    id_name: string;
+    teacher: string;
+    recommeded: 1|2|3|4|5;
+    sweet: 1|2|3|4|5;
+    relax: 1|2|3|4|5;
+    learned: 1|2|3|4|5;
+    Content: any
+};
+
+const { name, id_name, teacher, recommeded, sweet, relax, learned, Content } = Astro.props;
+
+const btn_id = `${id_name}-btn`;
+const modal_id = `${id_name}-modal`;
+const close_id = `${id_name}-close`;
+---
+<script is:inline define:vars={{id_name, btn_id, modal_id, close_id}}>
+    document.body.addEventListener('click', (e) => {
+        if (!e.target) return;
+        if (!e.target.id.startsWith(id_name) && e.target.id != "") return;
+        const modal = document.getElementById(modal_id);
+        const target = e.target;
+        const is_close_button = target.id === close_id || target.closest(`#${close_id}`);
+        const is_course_button = target.id === btn_id;
+        const is_modal = target.id === modal_id;
+        if (is_course_button) {
+            modal.classList.remove("hidden");
+        }
+        if (is_modal || is_close_button) {
+            modal.classList.add("hidden");
+        }
+    });     
+</script>
+<button id={btn_id} class="h-full w-full btn-plain p-1 scale-animation shadow-md dark:shadow-gray-700 rounded-lg border border-slate-500 bg-blue-50 dark:bg-gray-700">
+    {name}
+</button>
+<div id={modal_id} tabindex="-1" aria-hidden="true" class="fixed hidden overflow-y-auto overflow-x-hidden top-0 right-0 left-0 w-full md:inset-0 h-full max-h-full z-50">
+    <div class="relateive m-auto p-4 w-full max-w-2xl max-h-full ">
+        <div class="relative animate-transition animate-quickIn border-2 border-gray-500 dark:border-blue-100 shadow-2xl top-64 bg-white rounded-lg  dark:bg-gray-700">
+            <div class="flex-col items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <div class="flex">
+                    <div class="text-2xl font-semibold text-gray-900 dark:text-white">
+                        {name}
+                    </div>
+                    <button id={close_id} type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white z-50">
+                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <p class="text-base text-left m-l-2 leading-relaxed text-gray-400">
+                    授課老師: {teacher}
+                </p>
+            </div>
+            <div class="p-8 text-left">
+                <Content />
+            </div>
+            <div class="flex w-full justify-center items-center rounded-b-md bg-blue-100 dark:bg-gray-600 ">
+                <div class="flex-le p-2 m-auto text-lg">
+                    <StarCard name="推薦度" star={recommeded} />
+                </div>
+                <div class="flex-col p-2 m-auto text-base">
+                    <StarCard name="甜" star={sweet} />
+                    <StarCard name="涼" star={relax} />
+                    <StarCard name="硬" star={learned} />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
