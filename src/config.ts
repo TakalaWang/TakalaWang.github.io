@@ -82,7 +82,7 @@ export const profileConfig: ProfileConfig = {
 }
 
 export const default_about_page_lang: string = "zh_tw";
-export const default_curriculum_semester: string = "110-1";
+export const default_curriculum_semester: string = "113-1";
 
 export const achievements: {time: string, content: string}[] = [
     {
