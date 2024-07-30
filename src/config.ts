@@ -81,7 +81,7 @@ export const profileConfig: ProfileConfig = {
   ],
 }
 
-export const default_about_page_lang: string = "en";
+export const default_about_page_lang: string = "zh_tw";
 export const default_curriculum_semester: string = "110-1";
 
 export const achievements: {time: string, content: string}[] = [
@@ -139,7 +139,7 @@ export const achievements: {time: string, content: string}[] = [
     },
     {
         time: "2023-09 ~ 2024-06",
-        content: "GDSC Tech Spaek",
+        content: "GDSC Tech Speaker",
     },
     {
         time: "2024-06 ~ 2024-07",
