@@ -2,7 +2,7 @@
 
 This is Takala Blog power by [Astro](https://astro.build/) Framework and [fuwari](https://github.com/saicaca/fuwari).
 
-The website is build on GitHub Pages with [link](https://makertakala.github.io/).
+The website is build on GitHub Pages with [link](https://takalawang.github.io/).
 
 ## 🚀 How to Use
 

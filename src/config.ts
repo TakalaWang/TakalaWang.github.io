@@ -41,7 +41,7 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.Curriculum,
     {
       name: "GitHub",
-      url: "https://github.com/MakerTakala", // Internal links should not include the base path, as it is automatically added
+      url: "https://github.com/TakalaWang", // Internal links should not include the base path, as it is automatically added
       external: true, // Show an external link icon and will open in a new tab                          // Show an external link icon and will open in a new tab
     },
   ],
@@ -53,12 +53,12 @@ export const profileConfig: ProfileConfig = {
   department: "Senior @ NTNU-CSIE",
   bio: "A passionate ML & NLP Researcher and Developer && Forever Cataholic",
   email: "ccwangtakala@gmail.com",
-  website: "https://makertakala.github.io/",
+  website: "https://TakalaWang.github.io/",
   links: [
     {
       name: "GitHub",
       icon: "fa6-brands:github",
-      url: "https://github.com/MakerTakala",
+      url: "https://github.com/TakalaWang",
     },
     {
       name: "Instagram",
