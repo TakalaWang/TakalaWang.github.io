@@ -15,14 +15,16 @@ import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-di
 import remarkMath from "remark-math";
 import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs";
 import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs";
-import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
+import {parseDirectiveNode} from "./src/plugins/remark-directive-rehype.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+import {remarkExcerpt} from "./src/plugins/remark-excerpt.js";
 import mdx from "@astrojs/mdx";
-const oklchToHex = str => {
-  const DEFAULT_HUE = 250;
-  const regex = /-?\d+(\.\d+)?/g;
-  const matches = str.string.match(regex);
-  const lch = [matches[0], matches[1], DEFAULT_HUE];
+
+const oklchToHex = (str) => {
+  const DEFAULT_HUE = 250
+  const regex = /-?\d+(\.\d+)?/g
+  const matches = str.string.match(regex)
+  const lch = [matches[0], matches[1], DEFAULT_HUE]
   return new Color("oklch", lch).to("srgb").toString({
     format: "hex"
   });
@@ -63,34 +65,25 @@ export default defineConfig({
     }
   }), mdx()],
   markdown: {
-    remarkPlugins: [remarkMath, remarkReadingTime, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
-    rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeComponents, {
-      components: {
-        github: GithubCardComponent,
-        note: (x, y) => AdmonitionComponent(x, y, "note"),
-        tip: (x, y) => AdmonitionComponent(x, y, "tip"),
-        important: (x, y) => AdmonitionComponent(x, y, "important"),
-        caution: (x, y) => AdmonitionComponent(x, y, "caution"),
-        warning: (x, y) => AdmonitionComponent(x, y, "warning")
-      }
-    }], [rehypeAutolinkHeadings, {
-      behavior: "append",
-      properties: {
-        className: ["anchor"]
-      },
-      content: {
-        type: "element",
-        tagName: "span",
-        properties: {
-          className: ["anchor-icon"],
-          'data-pagefind-ignore': true
+    remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
+    rehypePlugins: [
+      rehypeKatex,
+      rehypeSlug,
+      [rehypeComponents, {
+        components: {
+          github: GithubCardComponent,
+          note: (x, y) => AdmonitionComponent(x, y, "note"),
+          tip: (x, y) => AdmonitionComponent(x, y, "tip"),
+          important: (x, y) => AdmonitionComponent(x, y, "important"),
+          caution: (x, y) => AdmonitionComponent(x, y, "caution"),
+          warning: (x, y) => AdmonitionComponent(x, y, "warning"),
         },
         children: [{
           type: "text",
           value: "#"
         }]
       }
-    }]]
+    ]]
   },
   vite: {
     build: {
