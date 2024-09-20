@@ -15,9 +15,15 @@ export const siteConfig: SiteConfig = {
       fixed: false, // Hide the theme color picker for visitors
   },
   banner: {
+<<<<<<< HEAD
     enable: true,
     src: 'assets/images/banner.png',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
     position: 'center', // Equivalent to object-position, defaults center
+=======
+    enable: false,
+    src: 'assets/images/demo-banner.png',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+    position: 'center',      // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
+>>>>>>> 8beeba81db3a5492aef52b712b47275013c74935
     credit: {
       enable: true,         // Display the credit text of the banner image
       text: 'Alen Margaret',              // Credit text to be displayed
