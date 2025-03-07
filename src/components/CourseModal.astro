@@ -7,14 +7,14 @@ interface Props {
     name: string;
     id_name: string;
     teacher: string;
-    recommeded: 1|2|3|4|5;
+    recommend: 1|2|3|4|5;
     sweet: 1|2|3|4|5;
     relax: 1|2|3|4|5;
     learned: 1|2|3|4|5;
     Content: any
 };
 
-const { name, id_name, teacher, recommeded, sweet, relax, learned, Content } = Astro.props;
+const { name, id_name, teacher, recommend, sweet, relax, learned, Content } = Astro.props;
 
 const btn_id = `${id_name}-btn`;
 const modal_id = `${id_name}-modal`;
@@ -66,7 +66,7 @@ const close_id = `${id_name}-close`;
             </div>
             <div class="flex w-full justify-center items-center rounded-b-md bg-blue-100 dark:bg-gray-600 ">
                 <div class="flex-le p-2 m-auto text-lg">
-                    <StarCard name="推薦度" star={recommeded} />
+                    <StarCard name="推薦度" star={recommend} />
                 </div>
                 <div class="flex-col p-2 m-auto text-base">
                     <StarCard name="甜" star={sweet} />

@@ -9,7 +9,7 @@ interface Frontmatter {
     name: string
     teacher: string
     times: string[]
-    recommeded: 1|2|3|4|5
+    recommend: 1|2|3|4|5
     sweet: 1|2|3|4|5
     relax: 1|2|3|4|5
     learned: 1|2|3|4|5
@@ -57,7 +57,7 @@ courses.forEach(course => {
                                             name={course.frontmatter.name}
                                             id_name={`course-${semester}-${WEEKDAYS[weekday + 1]}-${TIMES[time]}`}
                                             teacher={course.frontmatter.teacher}
-                                            recommeded={course.frontmatter.recommeded}
+                                            recommend={course.frontmatter.recommend}
                                             sweet={course.frontmatter.sweet}
                                             relax={course.frontmatter.relax}
                                             learned={course.frontmatter.learned}

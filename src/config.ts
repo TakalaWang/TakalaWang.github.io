@@ -20,8 +20,8 @@ export const siteConfig: SiteConfig = {
     position: 'center', // Equivalent to object-position, defaults center
     credit: {
       enable: true,         // Display the credit text of the banner image
-      text: 'Alen Margaret',              // Credit text to be displayed
-      url: 'https://www.canva.com/p/id/BAEC872BosI/'                // (Optional) URL link to the original artwork or artist's page
+      text: 'Anna Creator',              // Credit text to be displayed
+      url: 'https://www.canva.com/p/annacreator/?utm_medium=referral&utm_source=creator_share&utm_campaign=creator_share'                // (Optional) URL link to the original artwork or artist's page
     }
   },
   favicon: [    // Leave this array empty to use the default favicon
@@ -82,7 +82,7 @@ export const profileConfig: ProfileConfig = {
 }
 
 export const default_about_page_lang: string = "zh_tw";
-export const default_curriculum_semester: string = "113-1";
+export const default_curriculum_semester: string = "113-2";
 
 export const achievements: {time: string, content: string}[] = [
     {
