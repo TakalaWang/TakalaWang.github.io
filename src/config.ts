@@ -41,9 +41,14 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.Curriculum,
     {
       name: "GitHub",
-      url: "https://github.com/TakalaWang", // Internal links should not include the base path, as it is automatically added
-      external: true, // Show an external link icon and will open in a new tab                          // Show an external link icon and will open in a new tab
+      url: "https://github.com/TakalaWang",
+      external: true,
     },
+    {
+      name: "CV",
+      url: "https://www.self.so/TakalaWang",
+      external: true,
+    }
   ],
 }
 
