@@ -92,7 +92,7 @@ export const default_curriculum_semester: string = "113-2";
 export const achievements: {time: string, content: string}[] = [
     {
         time: "2022-01 ~ 2022-07",
-        content: "師大資工營活動股員",
+        content: "2022 師大資工營活動股員",
     },
     {
         time: "2022-08 ~ 2022-09",
@@ -112,15 +112,15 @@ export const achievements: {time: string, content: string}[] = [
     },
     {
         time: "2023-01 ~ 2023-07",
-        content: "師大資工營活動股長",
+        content: "2023 師大資工營活動股長",
     },
     {
         time: "2023-07 ~ 2023-08",
-        content: "客語語音辨識競賽 第二名 wtih howard, jacob",
+        content: "客語語音辨識競賽 第二名 wtih Howard, Jacob",
     },
     {
         time: "2023-07 ~ 2023-09",
-        content: "Cool English TTS 系統開發 wtih howard, jacob",
+        content: "Cool English TTS 系統開發 wtih Howard, Jacob",
     },
     {
         time: "2023-09 ~ 2023-10",
@@ -132,7 +132,7 @@ export const achievements: {time: string, content: string}[] = [
     },
     {
         time: "2023-07 ~ 2024-06",
-        content: "專題：英語語音口說評測系統之發展 wtih howard, jacob",
+        content: "專題：英語語音口說評測系統之發展 wtih Howard, Jacob",
     },
     {
         time: "2023-07 ~ 2024-06",
@@ -144,35 +144,51 @@ export const achievements: {time: string, content: string}[] = [
     },
     {
         time: "2023-09 ~ 2024-06",
-        content: "GDSC Tech Speaker",
+        content: "GDG on campus Tech Speaker",
     },
     {
         time: "2024-06 ~ 2024-07",
         content: "師大海狸營助教",
     },
     {
-        time: "2021-09 ~ now",
+        time: "2021-09 ~ 2025-06",
         content: "資工系 114 級班代",
     },
     {
-        time: "2021-09 ~ now",
-        content: "師大資工系羽球隊",
+        time: "2021-09 ~ 2025-06",
+        content: "師大資工系羽球隊隊員",
     },
     {
-        time: "2021-02 ~ now",
+        time: "2021-02 ~ 2025-06",
         content: "師大資工系排球隊",
     },
     {
-        time: "2024-07 ~ now",
+        time: "2024-07 ~ 2025-06",
         content: "40th 師大資工系學會114級會員代表",
     },
     {
-        time: "2024-07 ~ now",
-        content: "40th 師大資工系學會地下活動股員",
+        time: "2024-08 ~ 2025-06",
+        content: "張鈞法程式設計 (一)(二)TA",
     },
     {
-        time: "2024-08 ~ now",
-        content: "張鈞法程式設計 (一)(二)TA",
+      time: "2024-09 ~ 2025-06",
+      content: "Hinagiku 師生討論平台開發 with Jacob, Howard, Sky, Buffett, Ryanlinjui, meowtheway_mk2",
+    },
+    {
+        time: "2025-02 ~ 2025-06",
+        content: "南港高中、和平高中實習老師",
+    },
+    {
+        time: "2025-02 ~ 2025-07",
+        content: "2025 師大資工營教學股長 with NZ Hugo",
+    },
+    {
+      time: "2025-02 ~ 2025-08",
+      content: "SLaTE 2025 paper Accepted",
+    }, 
+    {
+        time: "2025-07 ~ now",
+        content: "Acer RD Intern",
     },
 ].reverse();
 
