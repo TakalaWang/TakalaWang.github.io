@@ -51,7 +51,7 @@ export const profileConfig: ProfileConfig = {
   avatar: "assets/images/avatar.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
   name: "Takala",
   department: "Senior @ NTNU-CSIE",
-  bio: "A passionate ML & NLP Researcher and Developer && Forever Cataholic",
+  bio: "A passionate ML Researcher and Developer && Forever Cataholic",
   email: "ccwangtakala@gmail.com",
   website: "https://TakalaWang.github.io/",
   links: [
@@ -73,7 +73,7 @@ export const profileConfig: ProfileConfig = {
     {
       name: "LinkedIn",
       icon: "fa6-brands:linkedin", 
-      url: "https://www.linkedin.com/in/%E9%87%8D%E9%88%9E-%E7%8E%8B-b80483248/",
+      url: "https://www.linkedin.com/in/takalawang/",
     },
     // Visit https://icones.js.org/ for icon codes
     // You will need to install the corresponding icon set if it's not already included
