@@ -87,7 +87,7 @@ export const profileConfig: ProfileConfig = {
 }
 
 export const default_about_page_lang: string = "zh_tw";
-export const default_curriculum_semester: string = "113-2";
+export const default_curriculum_semester: string = "114-2";
 
 export const achievements: {time: string, content: string}[] = [
     {
@@ -187,7 +187,7 @@ export const achievements: {time: string, content: string}[] = [
       content: "SLaTE 2025 paper Accepted",
     }, 
     {
-        time: "2025-07 ~ now",
+        time: "2025-07 ~ 2025-08",
         content: "Acer RD Intern",
     },
 ].reverse();
