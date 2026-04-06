@@ -69,7 +69,7 @@ export const profileConfig: ProfileConfig = {
     {
       name: "Instagram",
       icon: "fa6-brands:instagram",
-      url: "https://www.instagram.com/takala_1128/",
+      url: "https://www.instagram.com/takala_wang/",
     },
     {
       name: "Facebook",
