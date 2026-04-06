@@ -17,6 +17,7 @@ export const zh_CN: Translation = {
 
   [Key.untitled]: '无标题',
   [Key.uncategorized]: '未分类',
+  [Key.noContact]: '无联系方式',
   [Key.noTags]: '无标签',
 
   [Key.wordCount]: '字',

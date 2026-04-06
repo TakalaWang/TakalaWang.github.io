@@ -5,8 +5,10 @@ export const es: Translation = {
   [Key.home]: 'Inicio',
   [Key.about]: 'Sobre mí',
   [Key.archive]: 'Archivo',
+  [Key.curriculum]: 'Currículum',
   [Key.search]: 'Buscar',
 
+  [Key.contact]: 'Contacto',
   [Key.tags]: 'Etiquetas',
   [Key.categories]: 'Categorías',
   [Key.recentPosts]: 'Publicaciones recientes',
@@ -15,6 +17,7 @@ export const es: Translation = {
 
   [Key.untitled]: 'Sin título',
   [Key.uncategorized]: 'Sin categoría',
+  [Key.noContact]: 'Sin contacto',
   [Key.noTags]: 'Sin etiquetas',
 
   [Key.wordCount]: 'palabra',
