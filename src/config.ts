@@ -145,7 +145,7 @@ export const achievements: { time: string; content: string }[] = [
   },
   {
     time: "2023-08 ~ 2024-06",
-    content: "紀博文程式設計 (一)(二)TA",
+    content: "紀博文老師程式設計 (一)(二) TA",
   },
   {
     time: "2023-09 ~ 2024-06",
@@ -154,6 +154,10 @@ export const achievements: { time: string; content: string }[] = [
   {
     time: "2024-06 ~ 2024-07",
     content: "師大海狸營助教",
+  },
+  {
+    time: "2024-09 ~ 2024-10",
+    content: "2024 新竹學科能力競賽助理評審"
   },
   {
     time: "2021-09 ~ 2025-06",
@@ -173,7 +177,7 @@ export const achievements: { time: string; content: string }[] = [
   },
   {
     time: "2024-08 ~ 2025-06",
-    content: "張鈞法程式設計 (一)(二)TA",
+    content: "張鈞法老師程式設計 (一)(二)TA",
   },
   {
     time: "2024-09 ~ 2025-06",
@@ -182,7 +186,7 @@ export const achievements: { time: string; content: string }[] = [
   },
   {
     time: "2025-02 ~ 2025-06",
-    content: "南港高中、和平高中實習老師",
+    content: "南港高中、和平高中資訊實習老師",
   },
   {
     time: "2025-02 ~ 2025-07",
@@ -197,8 +201,20 @@ export const achievements: { time: string; content: string }[] = [
     content: "Acer RD Intern",
   },
   {
+    time: "2025-09 ~ 2025-10",
+    content: "2025 新北學科能力競賽助理評審"
+  },
+  {
+    time: "2026-03 ~ 2026-03",
+    content: "SITCON 2026 機動組成員",
+  },
+  {
     time: "2025-09 ~ now",
     content: "交大資科所碩士",
+  },
+  {
+    time: "2025-12 ~ now",
+    content: "EVA lab 網管"
   },
   {
     time: "2025-12 ~ now",
