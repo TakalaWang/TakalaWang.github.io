@@ -47,7 +47,7 @@ export const navBarConfig: NavBarConfig = {
     },
     {
       name: "CV",
-      url: "https://www.self.so/TakalaWang",
+      url: "/CV.pdf",
       external: true,
     },
   ],
