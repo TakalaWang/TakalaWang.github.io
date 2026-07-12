@@ -1,6 +1,5 @@
 import sitemap from '@astrojs/sitemap';
 import svelte from "@astrojs/svelte";
-import tailwind from "@astrojs/tailwind";
 import swup from '@swup/astro';
 import Compress from "astro-compress";
 import icon from "astro-icon";
@@ -19,6 +18,8 @@ import {parseDirectiveNode} from "./src/plugins/remark-directive-rehype.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import {remarkExcerpt} from "./src/plugins/remark-excerpt.js";
 import mdx from "@astrojs/mdx";
+import { unified } from "@astrojs/markdown-remark";
+import tailwindcss from "tailwindcss";
 
 const oklchToHex = (str) => {
   const DEFAULT_HUE = 250
@@ -36,7 +37,7 @@ export default defineConfig({
   site: "https://takalawang.github.io/",
   base: "/",
   trailingSlash: "always",
-  integrations: [tailwind(), swup({
+  integrations: [swup({
     theme: false,
     animationClass: 'transition-swup-',
     // see https://swup.js.org/options/#animationselector
@@ -65,8 +66,9 @@ export default defineConfig({
     }
   }), mdx()],
   markdown: {
-    remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
-    rehypePlugins: [
+    processor: unified({
+      remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
+      rehypePlugins: [
       rehypeKatex,
       rehypeSlug,
       [rehypeComponents, {
@@ -84,6 +86,7 @@ export default defineConfig({
         }]
       }
     ]]
+    })
   },
   vite: {
     build: {
@@ -98,6 +101,9 @@ export default defineConfig({
       }
     },
     css: {
+      postcss: {
+        plugins: [tailwindcss()],
+      },
       preprocessorOptions: {
         stylus: {
           define: {

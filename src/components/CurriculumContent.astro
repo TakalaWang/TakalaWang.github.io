@@ -1,6 +1,5 @@
 ---
 import CourseModal from "./CourseModal.astro";
-import type { MDXInstance } from "astro";
 
 interface Props {
     semester: string;
@@ -15,13 +14,19 @@ interface Frontmatter {
     learned: 1|2|3|4|5
 }
 
+type Course = {
+    default: any
+    frontmatter: Frontmatter
+}
+
 const { semester } = Astro.props;
 const WEEKDAYS = ["", "Mon", "Tue", "Wed", "Thu", "Fri"], TIMES = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "B", "C", "D"];
 
-const courses = await Astro.glob<Frontmatter>(`../content/courses/*/*.mdx`)
-    .then((res) => res.filter((course) => course.file.includes(semester)));
+const courses = Object.entries(import.meta.glob<Course>("../content/courses/*/*.mdx", { eager: true }))
+    .filter(([file]) => file.includes(`/courses/${semester}/`))
+    .map(([, course]) => course);
 
-let curriculums: MDXInstance<Frontmatter>[][] = new Array(TIMES.length).fill(null).map(() => new Array(WEEKDAYS.length - 1).fill(null));
+let curriculums: (Course | null)[][] = new Array(TIMES.length).fill(null).map(() => new Array(WEEKDAYS.length - 1).fill(null));
 courses.forEach(course => {
     for (const times of course.frontmatter.times) {
         const [week, time] = times.split("-");
@@ -53,7 +58,6 @@ courses.forEach(course => {
                                     {
                                         course ? 
                                         <CourseModal 
-                                            url={course.url}
                                             name={course.frontmatter.name}
                                             id_name={`course-${semester}-${WEEKDAYS[weekday + 1]}-${TIMES[time]}`}
                                             teacher={course.frontmatter.teacher}
@@ -61,7 +65,7 @@ courses.forEach(course => {
                                             sweet={course.frontmatter.sweet}
                                             relax={course.frontmatter.relax}
                                             learned={course.frontmatter.learned}
-                                            Content={course.Content}
+                                            Content={course.default}
                                         />
                                         :
                                         <div class="h-10"></div>

@@ -1,5 +1,5 @@
 ---
-import { getEntry } from 'astro:content'
+import { getEntry, render } from 'astro:content'
 import { achievements } from '@/config';
 import Markdown from "@components/misc/Markdown.astro";
 
@@ -13,7 +13,7 @@ const aboutPost = await getEntry('about', `about-${lang}`);
 
 let Content;
 if (aboutPost) {
-    const rendered = await aboutPost.render();
+    const rendered = await render(aboutPost);
     Content = rendered.Content;
 } else {
     Content = 'About content not found.';

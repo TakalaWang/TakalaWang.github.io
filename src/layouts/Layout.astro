@@ -382,7 +382,7 @@ const setup = () => {
 			heightExtend.classList.remove('hidden')
 		}
 	});
-	window.swup.hooks.on('visit:end', (visit: {to: {url: string}}) => {
+window.swup.hooks.on('visit:end', () => {
 		// execute 1s later
 		const heightExtend = document.getElementById('page-height-extend')
 		if (heightExtend) {

@@ -11,5 +11,5 @@ const { name, star } = Astro.props;
 ---
 
 <div class="text-black dark:text-white">
-    {name} {Array(star).fill(0).map((c)=> {return <Icon name="fa6-solid:star" class="inline text-yellow-300"></Icon>})}
+    {name} {Array(star).fill(0).map(() => <Icon name="fa6-solid:star" class="inline text-yellow-300"></Icon>)}
 </div>
