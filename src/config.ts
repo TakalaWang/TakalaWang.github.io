@@ -8,7 +8,7 @@ import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
   title: "Takala's Blog",
-  subtitle: "A passionate ML Researcher and Developer && Forever Cataholic",
+  subtitle: "A passionate Full-Stack & Cloud Engineer && Forever Cataholic",
   lang: "en", // 'en', 'zh_CN', 'zh_TW', 'ja'
   themeColor: {
     hue: 250, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
@@ -47,7 +47,7 @@ export const navBarConfig: NavBarConfig = {
     },
     {
       name: "CV",
-      url: "/CV.pdf",
+      url: "/resume/",
       external: true,
     },
   ],
@@ -56,8 +56,8 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
   avatar: "assets/images/avatar.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
   name: "Takala",
-  department: "Senior @ NTNU-CSIE",
-  bio: "A passionate ML Researcher and Developer && Forever Cataholic",
+  department: "CS @ NYCU",
+  bio: "A passionate Full-Stack & Cloud Engineer && Forever Cataholic",
   email: "ccwangtakala@gmail.com",
   website: "https://TakalaWang.github.io/",
   links: [
