@@ -46,8 +46,13 @@ export const navBarConfig: NavBarConfig = {
       external: true,
     },
     {
-      name: "CV",
+      name: "Portfolio",
       url: "/resume/",
+      external: true,
+    },
+    {
+      name: "CV",
+      url: "/CV/",
       external: true,
     },
   ],
